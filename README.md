@@ -220,15 +220,33 @@ pnpm run dev
 
 # Arquitectura
 
-* routes
-    - ↓
-* controller
-    - ↓
-* service
-    - ↓
-* repository
-    - ↓
-* database (PostgreSQL)
+localhost:5173   → React Frontend
+localhost:8080   → API Backend
+localhost:5432   → PostgreSQL
+
+Podman o Docker
+
+│
+├─ postgres
+│    puerto 5432
+│
+├─ backend-api
+│    puerto 8080
+│
+└─ frontend-react
+     puerto 3000
+
+---
+
+React (Frontend)
+      │
+      │ HTTP REST
+      ▼
+Node.js API
+      │
+      │ SQL
+      ▼
+PostgreSQL
 
 ---
 
