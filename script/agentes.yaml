@@ -1,0 +1,97 @@
+type: spec.insomnia.rest/5.0
+name: agentes-service
+meta:
+  id: wrk_agentes_microservice
+  created: 1764000000000
+  modified: 1764000000000
+  description: API módulo agentes
+
+collection:
+
+  - name: Agentes
+    meta:
+      id: fld_agentes
+      created: 1764000000001
+      modified: 1764000000001
+      sortKey: -1
+      description: Endpoints del microservicio agentes
+
+    children:
+
+      - url: http://localhost:8080/api/agentes
+        name: agentes
+        meta:
+          id: req_agentes_list
+          created: 1764000000002
+          modified: 1764000000002
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+
+      - url: http://localhost:8080/api/agentes/1
+        name: agente
+        meta:
+          id: req_agente_get
+          created: 1764000000003
+          modified: 1764000000003
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+
+      - url: http://localhost:8080/api/agentes
+        name: agenteCreate
+        meta:
+          id: req_agente_create
+          created: 1764000000004
+          modified: 1764000000004
+        method: POST
+        headers:
+          - name: Content-Type
+            value: application/json
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "nombre": "Carlos Ruiz",
+              "placa": "AGT-4050",
+              "rango": "Patrullero"
+            }
+
+      - url: http://localhost:8080/api/agentes/1
+        name: agenteUpdate
+        meta:
+          id: req_agente_update
+          created: 1764000000005
+          modified: 1764000000005
+        method: PUT
+        headers:
+          - name: Content-Type
+            value: application/json
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "nombre": "Carlos Ruiz",
+              "placa": "AGT-4050",
+              "rango": "Subintendente"
+            }
+
+      - url: http://localhost:8080/api/agentes/1
+        name: agenteDelete
+        meta:
+          id: req_agente_delete
+          created: 1764000000006
+          modified: 1764000000006
+        method: DELETE
+        headers:
+          - name: Content-Type
+            value: application/json
+
+environments:
+  name: Base Environment
+  meta:
+    id: env_agentes
+    created: 1764000000007
+    modified: 1764000000007

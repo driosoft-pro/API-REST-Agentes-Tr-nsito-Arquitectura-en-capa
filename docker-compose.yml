@@ -1,0 +1,31 @@
+services:
+  postgres:
+    #image: postgres:16                     # Usar para docker
+    image: docker.io/library/postgres:16    # Usar para podman
+    container_name: taller5_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: transito_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./db/postgres_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+
+  agentes-service:
+    build: ./backend
+    container_name: agentes_service
+    restart: unless-stopped
+    environment:
+      PORT: 8080
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/transito_db
+      CORS_ORIGIN: http://localhost:5173
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  pg_data:
