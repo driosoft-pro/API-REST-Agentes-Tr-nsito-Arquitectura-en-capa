@@ -254,6 +254,6 @@ PostgreSQL
 
 - **Deyton Riasco Ortiz** — driosoftpro@gmail.com
 - **Samuel Izquierdo Bonilla** — samuelizquierdo98@gmail.com
-- **Mauricio Taborda Gongora** — mauricio.taborda@uao.edu.co
+- **Mauricio Taborda Gongora** — mauriciotabordagongora0@gmail.com
 
   **Año:** 2026
